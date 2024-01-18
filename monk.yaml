@@ -1,0 +1,28 @@
+namespace: let-go
+
+let-go-vm:
+  defines: runnable
+  metadata:
+    name: let-go-vm
+    description: Bytecode compiler and VM for the let-go language.
+    icon: https://emojiapi.dev/api/v1/crystal_ball.svg
+  containers:
+    let-go-vm:
+      image: env-5319.registry.local/let-go-vm:main-5kso90
+      build: .
+      dockerfile: Dockerfile
+  services: {}
+  connections: {}
+  variables: {}
+
+stack:
+  defines: group
+  members:
+    - let-go/let-go-vm
+  metadata:
+    name: let-go
+    description: >-
+      A bytecode compiler and VM for a Clojure-like language closely resembling
+      Clojure, designed for quality entertainment and enabling Clojure at Go
+      jobs.
+    icon: https://emojiapi.dev/api/v1/crystal_ball.svg
